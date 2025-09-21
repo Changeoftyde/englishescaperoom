@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<!-- 2 5 1 7 -->
+<div class="screen" id="startingscreen">
+<span id="title">Wait for further instruction. Do Not Press Anything until instructed to.</span>
+<div class="row" style="top: 20dvh">
+  <div onclick="showscreen(1)" style="left: 0" class="number">1</div>
+  <div onclick="showscreen(2)" style="left: 17dvh" class="number">2</div>
+  <div onclick="showscreen(3)" style="left: 34dvh" class="number">3</div>
+  <div onclick="showscreen(4)" style="left: 51dvh" class="number">4</div>
+</div>
+<div class="row" style="top: 37dvh">
+  <div onclick="showscreen(5)" style="left: 0" class="number">5</div>
+  <div onclick="showscreen(6)" style="left: 17dvh" class="number">6</div>
+  <div onclick="showscreen(7)" style="left: 34dvh" class="number">7</div>
+  <div onclick="showscreen(8)" style="left: 51dvh" class="number">8</div>
+</div>
+<div class="row" style="top: 54dvh">
+  <div onclick="showscreen(9)" style="left: 0" class="number">9</div>
+  <div onclick="showscreen(10)" style="left: 17dvh" class="number">10</div>
+  <div onclick="showscreen(11)" style="left: 34dvh" class="number">11</div>
+  <div onclick="showscreen(12)" style="left: 51dvh" class="number">12</div>
+</div>
+<div class="row" style="top: 71dvh">
+  <div onclick="showscreen(13)" style="left: 0" class="number">13</div>
+  <div onclick="showscreen(14)" style="left: 17dvh" class="number">14</div>
+  <div onclick="showscreen(15)" style="left: 34dvh" class="number">15</div>
+  <div onclick="showscreen(16)" style="left: 51dvh" class="number">16</div>
+</div>
+</div>
+<div class="screen hidden" id="codequestionsscreen">
+  <div id="qaa">
+  <span id="questionforab"></span>
+  <input placeholder="Type the answer here..." id="answerblank">
+  <button id="submitbutton">Check</button>
+  </div>
+</div>
+<div class="screen hidden" id="decoderscreen">
+  <div id="decodeblock">
+    <div style="top: 0; left: 0" class="decodepixel" onclick="toggledecode()"></div>
+    <div style="top: 0; left: 13.75dvh" class="decodepixel" onclick="toggledecode()"></div>
+    <div style="top: 0; left: 27.5dvh" class="decodepixel" onclick="toggledecode()"></div>
+    <div style="top: 0; left: 41.25dvh" class="decodepixel" onclick="toggledecode()"></div>
+    <div style="top: 13.75dvh; left: 0" class="decodepixel" onclick="toggledecode()"></div>
+    <div style="top: 13.75dvh; left: 13.75dvh" class="decodepixel" onclick="toggledecode()"></div>
+    <div style="top: 13.75dvh; left: 27.5dvh" class="decodepixel" onclick="toggledecode()"></div>
+    <div style="top: 13.75dvh; left: 41.25dvh" class="decodepixel" onclick="toggledecode()"></div>
+    <div style="top: 27.5dvh; left: 0" class="decodepixel" onclick="toggledecode()"></div>
+    <div style="top: 27.5dvh; left: 13.75dvh" class="decodepixel" onclick="toggledecode()"></div>
+    <div style="top: 27.5dvh; left: 27.5dvh" class="decodepixel" onclick="toggledecode()"></div>
+    <div style="top: 27.5dvh; left: 41.25dvh" class="decodepixel" onclick="toggledecode()"></div>
+    <div style="top: 41.25dvh; left: 0" class="decodepixel" onclick="toggledecode()"></div>
+    <div style="top: 41.25dvh; left: 13.75dvh" class="decodepixel" onclick="toggledecode()"></div>
+    <div style="top: 41.25dvh; left: 27.5dvh" class="decodepixel" onclick="toggledecode()"></div>
+    <div style="top: 41.25dvh; left: 41.25dvh" class="decodepixel" onclick="toggledecode()"></div>
+  </div>
+</div>
+<div class="screen hidden" id="puzzle">
+  <div id="puzzlesquares">
+  <div onclick="issquareright(0)" class="squareinpuzzle" style="top: 12.25dvh; left: calc(50dvw - 27.25dvh)"><span class="centertextis"></span></div>
+  <div class="pathway" style="top: 30.25dvh; left: calc(50dvw - 27.25dvh)"><span class="ip"></span></div>
+  <div class="p90" style="top: 21.25dvh; left: calc(50dvw - 18.25dvh)"><span class="ip90"></span></div>
+  <div onclick="issquareright(1)" class="squareinpuzzle" style="top: 12.25dvh; left: 50dvw"><span class="centertextis"></span></div>
+  <div class="pathway" style="top: 30.25dvh; left: calc(50dvw)"><span class="ip"></span></div>
+  <div class="p90" style="top: 48.5dvh; left: calc(50dvw - 18.25dvh)"><span class="ip90"></span></div>
+  <div onclick="issquareright(2)" class="squareinpuzzle" style="top: 12.25dvh; left: calc(50dvw + 27.25dvh)"><span class="centertextis"></span></div>
+  <div class="pathway" style="top: 30.25dvh; left: calc(50dvw + 27.25dvh)"><span class="ip"></span></div>
+  <div class="p90" style="top: 75.75dvh; left: calc(50dvw - 18.25dvh)"><span class="ip90"></span></div>
+  <div onclick="issquareright(3)" class="squareinpuzzle" style="top: 39.5dvh; left: calc(50dvw - 27.25dvh)"><span class="centertextis"></span></div>
+  <div class="pathway" style="top: 57.5dvh; left: calc(50dvw - 27.25dvh)"><span class="ip"></span></div>
+  <div class="p90" style="top: 21.25dvh; left: calc(50dvw + 9dvh)"><span class="ip90"></span></div>
+  <div onclick="issquareright(4)" class="squareinpuzzle" style="top: 39.5dvh; left: 50dvw"><span class="centertextis"></span></div>
+  <div class="pathway" style="top: 57.5dvh; left: calc(50dvw)"><span class="ip"></span></div>
+  <div class="p90" style="top: 48.5dvh; left: calc(50dvw + 9dvh)"><span class="ip90"></span></div>
+  <div onclick="issquareright(5)" class="squareinpuzzle" style="top: 39.5dvh; left: calc(50dvw + 27.25dvh)"><span class="centertextis"></span></div>
+  <div class="pathway" style="top: 57.5dvh; left: calc(50dvw + 27.25dvh)"><span class="ip"></span></div>
+  <div class="p90" style="top: 75.75dvh; left: calc(50dvw + 9dvh)"><span class="ip90"></span></div>
+  <div onclick="issquareright(6)" class="squareinpuzzle" style="top: 66.75dvh; left: calc(50dvw - 27.25dvh)"><span class="centertextis"></span></div>
+  <div onclick="issquareright(7)" class="squareinpuzzle" style="top: 66.75dvh; left: 50dvw"><span class="centertextis"></span></div>
+  <div onclick="issquareright(8)" class="squareinpuzzle" style="top: 66.75dvh; left: calc(50dvw + 27.25dvh)"><span class="centertextis"></span></div>
+  </div>
+</div>
+<div class="screen hidden" id="4digitcode2">
+  <div id="dcp">
+    <div class="squarefordigit" onclick="rotatedigit()">0</div>
+    <div style="left: 25dvh" class="squarefordigit" onclick="rotatedigit()">0</div>
+    <div style="left: 47.5dvh" class="squarefordigit" onclick="rotatedigit()">0</div>
+    <div style="left: 70dvh" class="squarefordigit" onclick="rotatedigit()">0</div>
+  </div>  
+</div>
+<div class="screen hidden" id="pictureatfront">
+</div>
+<div class="screen hidden" id="5numbers">
+  <span id="accimp">Accuse the Murderer<span style="font-size: 3dvh"><br>WARNING: You only get one guess. Use it wisely.</span></span>
+  <input maxlength="9" class="oneoffive" placeholder="write name here..." style="left: 50%">
+  <button onclick="accuse()" id="accuse">Accuse!</button>
+</div>
+<div class="screen hidden" id="wtmpage">
+<span id="wtm"><span id="name"></span><span id="was"> was </span><span id="rest"></span><br><span id="newline">Innocents Win.</span></span>
+</div>
+</body>
+<style>
+@font-face {
+  src: url("Young20SRegular-wrB3.otf");
+  font-family: twenties;
+}
+body {
+  font-family: twenties;
+}
+button {
+  font-family: twenties;
+}
+input {
+  font-family: twenties;
+}
+#name, #was, #rest, #newline {
+  color: black;
+  webkit-tap-highlight-color: black;
+  pointer-events: none;
+  transition: 2s color;
+}
+#wtm {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: red;
+  width: 100%;
+  font-size: 7dvh;
+}
+#accuse:hover {
+  outline: 1dvh solid red;
+}
+#accuse {
+  background: none;
+  border: none;
+  width: 16dvh;
+  color: red;
+  outline: 1dvh solid #363636;
+  cursor: pointer;
+  border-radius: 2dvh;
+  height 5dvh;
+  font-size: 4dvh;
+  position: absolute;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, 0%);
+  bottom: 24dvh;
+}
+#accimp {
+  bottom: 58dvh;
+  color: red;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 16dvh;
+  line-height: 3dvh;
+}
+.oneoffive {
+  position: absolute;
+  top: 56%;
+  color: red;
+  text-align: center;
+  font-size: 8dvh;
+  width: 100dvh;
+  height: 20dvh;
+  transform: translate(-50%, -50%);
+  background-color: #363636;
+  border-radius: 7dvh;
+  border: none;
+}
+#pictureatfront {
+  background-position: 50% 50%;
+  background-size: cover;
+}
+.squarefordigit {
+  background-color: black;
+  width: 20dvh;
+  top: 2.5dvh;
+  left: 2.5dvh;
+  height: 20dvh;
+  position: absolute;
+  font-size: 16dvh;
+  color: red;
+  text-align: center;
+  border-radius: 3dvh;
+}
+#dcp {
+  width: 92.5dvh;
+  height: 25dvh;
+  left: 50dvw;
+  top: 50dvh;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background-color: #363636;
+  border-radius: 5dvh;
+}
+#puzzlesquares {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 0.1s left;
+}
+.screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: black;
+  top: 0;
+  left: 0;
+}
+.ip {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.ip90 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 13dvh;
+  transform: translate(-50%, -50%) rotateZ(90deg);
+  text-align: center;
+}
+.p90 {
+  z-index: 1;
+  position: absolute;
+  border-width: 1.5dvh 0 1.5dvh 0;
+  border-color: red;
+  border-style: solid;
+  background-color: black;
+  color: red;
+  font-size: 2dvh;
+  width: 9.25dvh;
+  height: 13dvh;
+  transform: translate(0%, -50%);
+}
+
+.pathway {
+  z-index: 1;
+  position: absolute;
+  border-width: 0 1.5dvh 0 1.5dvh;
+  border-color: red;
+  border-style: solid;
+  background-color: black;
+  color: red;
+  font-size: 2dvh;
+  height: 9.25dvh;
+  width: 13dvh;
+  transform: translate(-50%, 0%);
+}
+.centertextis {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  top: 50%;
+  left: 50%;
+}
+.squareinpuzzle {
+  transform: translate(-50%, 0%);
+  width: 18dvh;
+  height: 18dvh;
+  position: absolute;
+  background-color: black;
+  color: red;
+  font-size: 2.5dvh;
+  text-align: center;
+  outline: 1.5dvh solid red;
+  border-radius: 2dvh;
+  z-index: 2;
+}
+.decodepixel {
+  cursor: pointer;
+  position: absolute;
+  width: 13.75dvh;
+  height: 13.75dvh;
+  background-color: black;
+  color: red;
+  align-content: justify;
+  text-align: center;
+  font-size: 12dvh;
+  outline: 1.5dvh solid #363636;
+}
+#decodeblock {
+  width: 55dvh;
+  height: 55dvh;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  outline: 5dvh solid #363636;
+  border-radius: 1dvh;
+}
+#submitbutton:hover {
+  color: red;
+  outline: 1dvh solid red;
+}
+#submitbutton {
+  cursor: pointer;
+  top: 20dvh;
+  height: 4dvh;
+  width: 14dvh;
+  border: none;
+  border-radius: 1dvh;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  outline: 1dvh solid #363636;
+  color: red;
+  font-size: 3dvh;
+}
+#qaa {
+  width: 100%;
+  height: 25dvh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#questionforab {
+  font-size: 3.5dvh;
+  height: 4dvh;
+  width: 100dvh;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  top: 0;
+  color: red;
+}
+#answerblank {
+  width: 100dvh;
+  height: 5dvh;
+  font-size: 3.5dvh;
+  color: red;
+  top: 8dvh;
+  background-color: black;
+  outline: 1.5dvh solid #363636;
+  border-radius: 2dvh;
+  border: none;
+  padding: 0.5dvh;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+.row {
+  position: absolute;
+  height: 11dvh;
+  width: 62dvh;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+.number:hover {
+  outline: 1.5dvh solid red;
+}
+.number {
+  cursor: pointer;
+  outline: 1.5dvh solid #363636;
+  position: absolute;
+  width: 11dvh;
+  height: 11dvh;
+  text-align: center;
+  color: red;
+  font-size: 9dvh;
+  align-content: justify;
+  position: absolute;
+  border-radius: 2dvh;
+}
+#title {
+  width: 100%;
+  color: red;
+  top: 8dvh;
+  font-size: 4.5dvh;
+  text-align: center;
+  left: 0;
+  position: absolute;
+}
+body {
+  background-color: black;
+}
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+</style>
+<script>
+function showscreen(number) {
+  switch (number) {
+    case 1: 
+      hideallbutone("codequestionsscreen");
+      break;
+    case 2: 
+      hideallbutone("codequestionsscreen");
+      break;
+    case 3: 
+      hideallbutone("codequestionsscreen");
+      break;
+    case 4: 
+      hideallbutone("codequestionsscreen");
+      break;
+    case 5: 
+      hideallbutone("decoderscreen");
+      break;
+    case 6: 
+      startingpt = 1;
+      lastone = 0;
+      document.getElementsByClassName("squareinpuzzle")[0].style.outline = "1.5dvh solid lime";
+      document.getElementsByClassName("squareinpuzzle")[0].style.color = "lime";
+      document.getElementsByClassName("squareinpuzzle")[0].classList.add("correct");
+      hideallbutone("puzzle");
+      break;
+    case 7: 
+      startingpt = 2;
+      lastone = 2;
+      document.getElementsByClassName("squareinpuzzle")[2].style.outline = "1.5dvh solid lime";
+      document.getElementsByClassName("squareinpuzzle")[2].style.color = "lime";
+      document.getElementsByClassName("squareinpuzzle")[2].classList.add("correct");
+      hideallbutone("puzzle");
+      break;
+    case 8:
+      startingpt = 3;
+      lastone = 0;
+      document.getElementsByClassName("squareinpuzzle")[0].style.outline = "1.5dvh solid lime";
+      document.getElementsByClassName("squareinpuzzle")[0].style.color = "lime";
+      document.getElementsByClassName("squareinpuzzle")[0].classList.add("correct");
+      hideallbutone("puzzle");
+      break;
+    case 9: 
+      startingpt = 4;
+      lastone = 0;
+      document.getElementsByClassName("squareinpuzzle")[0].style.outline = "1.5dvh solid lime";
+      document.getElementsByClassName("squareinpuzzle")[0].style.color = "lime";
+      document.getElementsByClassName("squareinpuzzle")[0].classList.add("correct");
+      hideallbutone("puzzle");
+      break;
+    case 10: 
+      hideallbutone("4digitcode2");
+      break;
+    case 11:
+      hideallbutone("pictureatfront");
+      break;
+    case 12: 
+      hideallbutone("pictureatfront");
+      break;
+    case 13: 
+      hideallbutone("pictureatfront");
+      break;
+    case 14: 
+      hideallbutone("pictureatfront");
+      break;
+    case 15: 
+      hideallbutone("pictureatfront");
+      break;
+    case 16: 
+      hideallbutone("5numbers");
+      break;
+    default:
+      break;
+  }
+}
+steps1 = [0, 1, 2, 5, 4, 3, 6, 7, 8];
+steps2 = [2, 1, 0, 3, 4, 5, 8, 7, 6];
+steps3 = [0, 1, 4, 7];
+steps4 = [0, 1, 2, 5, 8];
+coordination = [[0, 1], [0, 3], [1, 2], [1, 4], [2, 5], [3, 4], [4, 5], [3, 6], [4, 7], [5, 8], [6, 7], [7, 8]];
+whichonesict = [6, 0, 9, 1, 2, 7, 10, 3, 4, 5, 8, 11];
+currentstep = 1;
+function issquareright(whichnumisthis) {
+  stepsToUse = window["steps".concat(startingpt.toString())];
+  if (lastone == stepsToUse[currentstep - 1] && whichnumisthis == stepsToUse[currentstep]) {
+    document.getElementsByClassName("squareinpuzzle")[whichnumisthis].style.outline = "1.5dvh solid lime";
+    document.getElementsByClassName("squareinpuzzle")[whichnumisthis].classList.add("correct");
+    document.getElementsByClassName("squareinpuzzle")[whichnumisthis].style.color = "lime";
+    currentstep++;
+    if (whichnumisthis < lastone) {
+      arrayforcomparison = [whichnumisthis, lastone];
+    } else {
+      arrayforcomparison = [lastone, whichnumisthis];
+    }
+    for (i = 0; i < 12; i++) {
+      if (JSON.stringify(coordination[i]) == JSON.stringify(arrayforcomparison)) {
+        whichpathway = whichonesict[i];
+      }
+    }
+    if (whichpathway >= 6) {
+      document.getElementsByClassName("p90")[whichpathway - 6].style.borderColor = "lime";
+      document.getElementsByClassName("p90")[whichpathway - 6].style.color = "lime";
+    } else {
+      document.getElementsByClassName("pathway")[whichpathway].style.borderColor = "lime";
+      document.getElementsByClassName("pathway")[whichpathway].style.color = "lime";
+    }
+    lastone = whichnumisthis;
+  } else if (false == (document.getElementsByClassName("squareinpuzzle")[whichnumisthis].classList.contains("correct"))) {
+    document.getElementById("puzzlesquares").style.left = -1 + "dvh";
+    setTimeout(function() {
+    document.getElementById("puzzlesquares").style.left = 1 + "dvh";
+    }, 100);
+    setTimeout(function() {
+    document.getElementById("puzzlesquares").style.left = 0 + "dvh";
+    }, 200);
+  } else {
+
+  }
+}
+function toggledecode() {
+  if (event.target.style.backgroundColor == "red") {
+    event.target.style.backgroundColor = "black";
+    event.target.style.color = "red";
+  } else {
+    event.target.style.backgroundColor = "red";
+    event.target.style.color = "black";
+  }
+  string = "";
+  for (i = 0; i < document.getElementsByClassName('decodepixel').length; i++) {
+    string = string.concat(document.getElementsByClassName("decodepixel")[i].innerHTML);
+  }
+  if (string == "1000000000000000") {
+  }
+}
+function hideallbutone(idtokeep) {
+  for (i = 0; i < document.getElementsByClassName("screen").length; i++) {
+    document.getElementsByClassName("screen")[i].classList.add("hidden");
+  }
+  document.getElementById(idtokeep).classList.remove("hidden");
+}
+invalid = true;
+function rotatedigit() {
+  cn = parseInt(event.target.innerHTML);
+  if (cn == 9) { cn = 0 } else {
+    cn++;
+  }
+  event.target.innerHTML = cn.toString();
+  if (document.getElementsByClassName("squarefordigit")[0].innerHTML.concat(document.getElementsByClassName("squarefordigit")[1].innerHTML, document.getElementsByClassName("squarefordigit")[2].innerHTML, document.getElementsByClassName("squarefordigit")[3].innerHTML) == "2517") {
+    for (i = 0; i < 4; i++) {
+      document.getElementsByClassName("squarefordigit")[i].style.color = "lime";
+      document.getElementsByClassName("squarefordigit")[i].setAttribute("onclick", "");
+    }
+  }
+}
+function accuse() {
+  if (document.getElementsByClassName("oneoffive")[0].value.toLowerCase() == "kennedy") {
+    hideallbutone("wtmpage");
+    document.getElementById("name").textContent = "Kennedy";
+    document.getElementById("rest").textContent = "the murderer."
+    document.getElementById("name").style.color = "red";
+    setTimeout(function() {
+    document.getElementById("was").style.color = "red";
+    }, 1000);
+    setTimeout(function() {
+    document.getElementById("rest").style.color = "red";
+    }, 4000);
+    setTimeout(function() {
+    document.getElementById("rest").style.color = "white";
+    document.getElementById("name").style.color = "white";
+    document.getElementById("was").style.color = "white";
+    }, 5500);
+    setTimeout(function() {
+    document.getElementById("newline").style.color = "white";
+    }, 7000);
+  } else {
+    hideallbutone("wtmpage");
+    textinputted = document.getElementsByClassName("oneoffive")[0].value.toLowerCase();
+    textinputted = textinputted[0].toUpperCase().concat(textinputted.substring(1));
+    document.getElementById("name").textContent = textinputted;
+    document.getElementById("newline").textContent = "Murderer Wins."
+    document.getElementById("rest").textContent = "not the murderer."
+    document.getElementById("name").style.color = "red";
+    setTimeout(function() {
+    document.getElementById("was").style.color = "red";
+    }, 1000);
+    setTimeout(function() {
+    document.getElementById("rest").style.color = "red";
+    }, 4000);
+    setTimeout(function() {
+    document.getElementById("newline").style.color = "red";
+    }, 7000);
+  }
+}
+</script>
+</html>
