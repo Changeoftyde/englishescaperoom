@@ -105,7 +105,7 @@
 </body>
 <style>
 @font-face {
-  src: url("limelight.regular (1).ttf");
+  src: url("whitelight.regular (1).ttf");
   font-family: twenties;
 }
 body {
@@ -189,6 +189,7 @@ input {
   color: red;
   text-align: center;
   border-radius: 3dvh;
+  transition: 2s color;
 }
 #dcp {
   width: 92.5dvh;
@@ -223,6 +224,7 @@ input {
   width: 100%;
   transform: translate(-50%, -50%);
   text-align: center;
+  transition: 2s color;
 }
 .ip90 {
   position: absolute;
@@ -231,8 +233,10 @@ input {
   width: 13dvh;
   transform: translate(-50%, -50%) rotateZ(90deg);
   text-align: center;
+  transition: 2s color;
 }
 .p90 {
+  transition: 2s border-color;
   z-index: 1;
   position: absolute;
   border-width: 1.5dvh 0 1.5dvh 0;
@@ -247,6 +251,7 @@ input {
 }
 
 .pathway {
+  transition: 2s border-color;
   z-index: 1;
   position: absolute;
   border-width: 0 1.5dvh 0 1.5dvh;
@@ -278,6 +283,7 @@ input {
   outline: 1.5dvh solid red;
   border-radius: 2dvh;
   z-index: 2;
+  transition: 2s outline;
 }
 .decodepixel {
   cursor: pointer;
@@ -415,32 +421,32 @@ function showscreen(number) {
     case 6: 
       startingpt = 1;
       lastone = 0;
-      document.getElementsByClassName("squareinpuzzle")[0].style.outline = "1.5dvh solid lime";
-      document.getElementsByClassName("squareinpuzzle")[0].style.color = "lime";
+      document.getElementsByClassName("squareinpuzzle")[0].style.outline = "1.5dvh solid white";
+      document.getElementsByClassName("squareinpuzzle")[0].style.color = "white";
       document.getElementsByClassName("squareinpuzzle")[0].classList.add("correct");
       hideallbutone("puzzle");
       break;
     case 7: 
       startingpt = 2;
       lastone = 2;
-      document.getElementsByClassName("squareinpuzzle")[2].style.outline = "1.5dvh solid lime";
-      document.getElementsByClassName("squareinpuzzle")[2].style.color = "lime";
+      document.getElementsByClassName("squareinpuzzle")[2].style.outline = "1.5dvh solid white";
+      document.getElementsByClassName("squareinpuzzle")[2].style.color = "white";
       document.getElementsByClassName("squareinpuzzle")[2].classList.add("correct");
       hideallbutone("puzzle");
       break;
     case 8:
       startingpt = 3;
       lastone = 0;
-      document.getElementsByClassName("squareinpuzzle")[0].style.outline = "1.5dvh solid lime";
-      document.getElementsByClassName("squareinpuzzle")[0].style.color = "lime";
+      document.getElementsByClassName("squareinpuzzle")[0].style.outline = "1.5dvh solid white";
+      document.getElementsByClassName("squareinpuzzle")[0].style.color = "white";
       document.getElementsByClassName("squareinpuzzle")[0].classList.add("correct");
       hideallbutone("puzzle");
       break;
     case 9: 
       startingpt = 4;
       lastone = 0;
-      document.getElementsByClassName("squareinpuzzle")[0].style.outline = "1.5dvh solid lime";
-      document.getElementsByClassName("squareinpuzzle")[0].style.color = "lime";
+      document.getElementsByClassName("squareinpuzzle")[0].style.outline = "1.5dvh solid white";
+      document.getElementsByClassName("squareinpuzzle")[0].style.color = "white";
       document.getElementsByClassName("squareinpuzzle")[0].classList.add("correct");
       hideallbutone("puzzle");
       break;
@@ -479,9 +485,9 @@ currentstep = 1;
 function issquareright(whichnumisthis) {
   stepsToUse = window["steps".concat(startingpt.toString())];
   if (lastone == stepsToUse[currentstep - 1] && whichnumisthis == stepsToUse[currentstep]) {
-    document.getElementsByClassName("squareinpuzzle")[whichnumisthis].style.outline = "1.5dvh solid lime";
+    document.getElementsByClassName("squareinpuzzle")[whichnumisthis].style.outline = "1.5dvh solid white";
     document.getElementsByClassName("squareinpuzzle")[whichnumisthis].classList.add("correct");
-    document.getElementsByClassName("squareinpuzzle")[whichnumisthis].style.color = "lime";
+    document.getElementsByClassName("squareinpuzzle")[whichnumisthis].style.color = "white";
     currentstep++;
     if (whichnumisthis < lastone) {
       arrayforcomparison = [whichnumisthis, lastone];
@@ -494,11 +500,11 @@ function issquareright(whichnumisthis) {
       }
     }
     if (whichpathway >= 6) {
-      document.getElementsByClassName("p90")[whichpathway - 6].style.borderColor = "lime";
-      document.getElementsByClassName("p90")[whichpathway - 6].style.color = "lime";
+      document.getElementsByClassName("p90")[whichpathway - 6].style.borderColor = "white";
+      document.getElementsByClassName("p90")[whichpathway - 6].style.color = "white";
     } else {
-      document.getElementsByClassName("pathway")[whichpathway].style.borderColor = "lime";
-      document.getElementsByClassName("pathway")[whichpathway].style.color = "lime";
+      document.getElementsByClassName("pathway")[whichpathway].style.borderColor = "white";
+      document.getElementsByClassName("pathway")[whichpathway].style.color = "white";
     }
     lastone = whichnumisthis;
   } else if (false == (document.getElementsByClassName("squareinpuzzle")[whichnumisthis].classList.contains("correct"))) {
@@ -543,7 +549,7 @@ function rotatedigit() {
   event.target.innerHTML = cn.toString();
   if (document.getElementsByClassName("squarefordigit")[0].innerHTML.concat(document.getElementsByClassName("squarefordigit")[1].innerHTML, document.getElementsByClassName("squarefordigit")[2].innerHTML, document.getElementsByClassName("squarefordigit")[3].innerHTML) == "2517") {
     for (i = 0; i < 4; i++) {
-      document.getElementsByClassName("squarefordigit")[i].style.color = "lime";
+      document.getElementsByClassName("squarefordigit")[i].style.color = "white";
       document.getElementsByClassName("squarefordigit")[i].setAttribute("onclick", "");
     }
   }
