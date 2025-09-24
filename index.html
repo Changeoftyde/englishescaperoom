@@ -9,6 +9,10 @@
 </head>
 <body>
 <!-- 2 5 1 7 -->
+<div class="screen hidden" id="codewordscreen">
+  <span id="codeworddesc"></span>
+  <input id="codeword" placeholder="Type here...">
+</div>
 <div class="screen" id="startingscreen">
 <span id="title">Wait for further instruction. Do Not Press Anything until instructed to.</span>
 <div class="row" style="top: 20dvh">
@@ -109,6 +113,33 @@
 </div>
 </body>
 <style>
+#codeworddesc {
+  font-size: 4dvh;
+  color: red;
+  position: absolute;
+  top: 56dvh;
+  text-align: center;
+  white-space: nowrap;
+  width: 100%;
+  left: 0;
+}
+#codeword {
+  font-family: "Montserrat";
+  font-weight: bold;
+  width: 100dvh;
+  height: 5dvh;
+  font-size: 3.5dvh;
+  color: red;
+  top: 50%;
+  left: 50%;
+  background-color: black;
+  outline: 1.5dvh solid #363636;
+  border-radius: 2dvh;
+  border: none;
+  padding: 0.5dvh;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
 @font-face {
   src: url("limelight.regular (1).ttf");
   font-family: twenties;
@@ -433,10 +464,40 @@ body {
   }
 </style>
 <script>
+function codeword(whichone, whichpage) {
+  if (whichone == 1) {
+    document.getElementById("codeworddesc").innerHTML = "First Codeword:";
+    document.getElementById("codeword").addEventListener("keydown", function() {
+      setTimeout(function() {
+        if (document.getElementById("codeword").value.toUpperCase() == "CYANIDE") {
+          hideallbutone(whichpage);
+        }
+      }, 100)
+    });
+  } else if (whichone == 2) {
+    document.getElementById("codeworddesc").innerHTML = "Second Codeword:";
+    document.getElementById("codeword").addEventListener("keydown", function() {
+      setTimeout(function() {
+        if (document.getElementById("codeword").value.toUpperCase() == "SUFFRAGE") {
+          hideallbutone(whichpage);
+        }
+      }, 100)
+    });
+  } else {
+    document.getElementById("codeworddesc").innerHTML = "Third Codeword:";
+    document.getElementById("codeword").addEventListener("keydown", function() {
+      setTimeout(function() {
+        if (document.getElementById("codeword").value.toUpperCase() == "BIPOLARISM") {
+          hideallbutone(whichpage);
+        }
+      }, 100)
+    });
+  }
+}
 function showscreen(number) {
   switch (number) {
     case 1: 
-      hideallbutone("codequestionsscreen");
+      codeword(1, "codequestionsscreen");
       document.getElementById("questionforab").innerHTML = "What was the name of one of the two stories written by Agatha that included a wounded or shellshocked veteran?";
       document.getElementById("submitbutton").addEventListener("click", function() {
         if (document.getElementById("answerblank").value.toUpperCase() == "THE ABC MURDERS" || document.getElementById("answerblank").value.toUpperCase() == "THE MOVING FINGER") {
@@ -447,7 +508,7 @@ function showscreen(number) {
       })
       break;
     case 2: 
-      hideallbutone("codequestionsscreen");
+      codeword(1, "codequestionsscreen");
       document.getElementById("questionforab").innerHTML = "What is the word used in the video that means the area of a hospital where medicine is stored and distributed?";
       document.getElementById("submitbutton").addEventListener("click", function() {
         if (document.getElementById("answerblank").value.toUpperCase() == "DISPENSARY") {
@@ -458,7 +519,7 @@ function showscreen(number) {
       })
       break;
     case 3: 
-      hideallbutone("codequestionsscreen");
+      codeword(1, "codequestionsscreen");
       document.getElementById("questionforab").innerHTML = "What was the name of the poison from The Mysterious Affair at Styles?";
       document.getElementById("submitbutton").addEventListener("click", function() {
         if (document.getElementById("answerblank").value.toUpperCase() == "ARSENIC") {
@@ -469,7 +530,7 @@ function showscreen(number) {
       })
       break;
     case 4: 
-      hideallbutone("codequestionsscreen");
+      codeword(1, "codequestionsscreen");
       document.getElementById("questionforab").innerHTML = "In what year did Agatha stop working as a nurse?";
       document.getElementById("submitbutton").addEventListener("click", function() {
         if (document.getElementById("answerblank").value.toUpperCase() == "1918") {
@@ -480,7 +541,7 @@ function showscreen(number) {
       })
       break;
     case 5: 
-      hideallbutone("decoderscreen");
+      codeword(1, "decoderscreen");
       break;
     case 6: 
       startingpt = 1;
@@ -510,7 +571,7 @@ function showscreen(number) {
       document.getElementsByClassName("squareinpuzzle")[0].style.outline = "1.5dvh solid white";
       document.getElementsByClassName("squareinpuzzle")[0].style.color = "white";
       document.getElementsByClassName("squareinpuzzle")[0].classList.add("correct");
-      hideallbutone("puzzle");
+      codeword(2, "puzzle");
       break;
     case 7: 
       startingpt = 2;
@@ -540,7 +601,7 @@ function showscreen(number) {
       document.getElementsByClassName("squareinpuzzle")[2].style.outline = "1.5dvh solid white";
       document.getElementsByClassName("squareinpuzzle")[2].style.color = "white";
       document.getElementsByClassName("squareinpuzzle")[2].classList.add("correct");
-      hideallbutone("puzzle");
+      codeword(2, "puzzle");
       break;
     case 8:
       startingpt = 3;
@@ -570,7 +631,7 @@ function showscreen(number) {
       document.getElementsByClassName("squareinpuzzle")[0].style.outline = "1.5dvh solid white";
       document.getElementsByClassName("squareinpuzzle")[0].style.color = "white";
       document.getElementsByClassName("squareinpuzzle")[0].classList.add("correct");
-      hideallbutone("puzzle");
+      codeword(2, "puzzle");
       break;
     case 9: 
       startingpt = 4;
@@ -600,33 +661,33 @@ function showscreen(number) {
       document.getElementsByClassName("squareinpuzzle")[0].style.outline = "1.5dvh solid white";
       document.getElementsByClassName("squareinpuzzle")[0].style.color = "white";
       document.getElementsByClassName("squareinpuzzle")[0].classList.add("correct");
-      hideallbutone("puzzle");
+      codeword(2, "puzzle");
       break;
     case 10: 
-      hideallbutone("4digitcode2");
+      codeword(2, "4digitcode2");
       break;
     case 11:
       document.getElementById("pictureatfront").style.backgroundImage = "url('location1.png')";
-      hideallbutone("pictureatfront");
+      codeword(3, "pictureatfront");
       break;
     case 12: 
       document.getElementById("pictureatfront").style.backgroundImage = "url('location2.png')";
-      hideallbutone("pictureatfront");
+      codeword(3, "pictureatfront");
       break;
     case 13: 
       document.getElementById("pictureatfront").style.backgroundImage = "url('location3.png')";
-      hideallbutone("pictureatfront");
+      codeword(3, "pictureatfront");
       break;
     case 14: 
       document.getElementById("pictureatfront").style.backgroundImage = "url('location4.png')";
-      hideallbutone("pictureatfront");
+      codeword(3, "pictureatfront");
       break;
     case 15: 
       document.getElementById("pictureatfront").style.backgroundImage = "url('location5.png')";
-      hideallbutone("pictureatfront");
+      codeword(3, "pictureatfront");
       break;
     case 16: 
-      hideallbutone("5numbers");
+      codeword(3, "5numbers");
       break;
     default:
       break;
