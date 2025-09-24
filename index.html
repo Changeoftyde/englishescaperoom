@@ -425,15 +425,47 @@ function showscreen(number) {
   switch (number) {
     case 1: 
       hideallbutone("codequestionsscreen");
+      document.getElementById("questionforab").innerHTML = "What was the name of one of the two stories written by Agatha that included a wounded or shellshocked veteran?";
+      document.getElementById("submitbutton").addEventListener("click", function() {
+        if (document.getElementById("answerblank").value.toUpperCase() == "THE ABC MURDERS" || document.getElementById("answerblank").value.toUpperCase() == "THE MOVING FINGER") {
+          document.getElementById("pictureatfront").style.backgroundPosition = "100% 100%";
+          document.getElementById("pictureatfront").style.backgroundImage = "url('quarter1.png')";
+          hideallbutone("pictureatfront");
+        }
+      })
       break;
     case 2: 
       hideallbutone("codequestionsscreen");
+      document.getElementById("questionforab").innerHTML = "What is the word used in the video that means the area of a hospital where medicine is stored and distributed?";
+      document.getElementById("submitbutton").addEventListener("click", function() {
+        if (document.getElementById("answerblank").value.toUpperCase() == "DISPENSARY") {
+          document.getElementById("pictureatfront").style.backgroundPosition = "0% 100%";
+          document.getElementById("pictureatfront").style.backgroundImage = "url('quarter2.png')";
+          hideallbutone("pictureatfront");
+        }
+      })
       break;
     case 3: 
       hideallbutone("codequestionsscreen");
+      document.getElementById("questionforab").innerHTML = "What was the name of the poison from The Mysterious Affair at Styles?";
+      document.getElementById("submitbutton").addEventListener("click", function() {
+        if (document.getElementById("answerblank").value.toUpperCase() == "ARSENIC") {
+          document.getElementById("pictureatfront").style.backgroundPosition = "100% 0%";
+          document.getElementById("pictureatfront").style.backgroundImage = "url('quarter3.png')";
+          hideallbutone("pictureatfront");
+        }
+      })
       break;
     case 4: 
       hideallbutone("codequestionsscreen");
+      document.getElementById("questionforab").innerHTML = "In what year did Agatha stop working as a nurse?";
+      document.getElementById("submitbutton").addEventListener("click", function() {
+        if (document.getElementById("answerblank").value.toUpperCase() == "1918") {
+          document.getElementById("pictureatfront").style.backgroundPosition = "0% 0%";
+          document.getElementById("pictureatfront").style.backgroundImage = "url('quarter4.png')";
+          hideallbutone("pictureatfront");
+        }
+      })
       break;
     case 5: 
       hideallbutone("decoderscreen");
@@ -551,7 +583,9 @@ function toggledecode() {
   for (i = 0; i < document.getElementsByClassName('decodepixel').length; i++) {
     string = string.concat(document.getElementsByClassName("decodepixel")[i].innerHTML);
   }
-  if (string == "1000000000000000") {
+  if (string == "0110100100101010") {
+    document.getElementById("pictureatfront").style.backgroundImage = "url('crackedfirstcode.png')";
+    hideallbutone("pictureatfront");
   }
 }
 function hideallbutone(idtokeep) {
