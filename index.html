@@ -465,6 +465,7 @@ body {
 </style>
 <script>
 function codeword(whichone, whichpage) {
+  hideallbutone("codewordscreen");
   if (whichone == 1) {
     document.getElementById("codeworddesc").innerHTML = "First Codeword:";
     document.getElementById("codeword").addEventListener("keydown", function() {
