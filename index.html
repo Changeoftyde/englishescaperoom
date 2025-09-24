@@ -64,6 +64,7 @@
   </div>
 </div>
 <div class="screen hidden" id="puzzle">
+  <span id="abcd">A</span>
   <div id="puzzlesquares">
   <div onclick="issquareright(0)" class="squareinpuzzle" style="top: 12.25dvh; left: calc(50dvw - 27.25dvh)"><span class="centertextis"></span></div>
   <div class="pathway" style="top: 30.25dvh; left: calc(50dvw - 27.25dvh)"><span class="ip"></span></div>
@@ -420,6 +421,16 @@ body {
   opacity: 0;
   pointer-events: none;
 }
+  #abcd {
+    color: red;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 2.5dvh;
+    font-size: 3dvh;
+    text-align: center;
+    white-space: nowrap;
+  }
 </style>
 <script>
 function showscreen(number) {
@@ -474,6 +485,7 @@ function showscreen(number) {
     case 6: 
       startingpt = 1;
       lastone = 0;
+      document.getElementById("abcd").innerHTML = "A";
       document.getElementsByClassName("centertextis")[0].innerHTML = "When did Agatha's husband ask for a divorce?";
       document.getElementsByClassName("centertextis")[1].innerHTML = "What was her husband's lover's name?";
       document.getElementsByClassName("centertextis")[2].innerHTML = "How many days did Agatha leave for?";
@@ -503,6 +515,7 @@ function showscreen(number) {
     case 7: 
       startingpt = 2;
       lastone = 2;
+      document.getElementById("abcd").innerHTML = "B";
       document.getElementsByClassName("centertextis")[2].innerHTML = "When did Agatha's husband ask for a divorce?";
       document.getElementsByClassName("centertextis")[1].innerHTML = "What was her husband's lover's name?";
       document.getElementsByClassName("centertextis")[0].innerHTML = "How many days did Agatha leave for?";
@@ -532,6 +545,7 @@ function showscreen(number) {
     case 8:
       startingpt = 3;
       lastone = 0;
+      document.getElementById("abcd").innerHTML = "C";
       document.getElementsByClassName("centertextis")[0].innerHTML = "When did Agatha's husband ask for a divorce?";
       document.getElementsByClassName("centertextis")[1].innerHTML = "What was her husband's lover's name?";
       document.getElementsByClassName("centertextis")[2].innerHTML = "How many days did Agatha leave for?";
@@ -558,6 +572,7 @@ function showscreen(number) {
     case 9: 
       startingpt = 4;
       lastone = 0;
+      document.getElementById("abcd").innerHTML = "D";
       document.getElementsByClassName("centertextis")[0].innerHTML = "When did Agatha's husband ask for a divorce?";
       document.getElementsByClassName("centertextis")[1].innerHTML = "What was her husband's lover's name?";
       document.getElementsByClassName("centertextis")[2].innerHTML = "How many days did Agatha leave for?";
