@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<span id="time">9:00</span>
+<style>
+  @font-face {
+    font-family: typewriter;
+    src: url("American Typewriter Regular.ttf");
+  }
+  body {
+    font-family: typewriter;
+    background-color: black;
+  }
+  #time {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0%, -50%);
+    color: red;
+    font-size: 35dvh;
+    text-align: center;
+  }
+</style>
+<script>
+  let currenttimeleft = 540;
+  setTimeout(function() {
+    let timer = setInterval(function() {
+      currenttimeleft--;
+      if (currenttimeleft > 0) {
+        let minutes = Math.floor(currenttimeleft / 60);
+        let seconds = currenttimeleft % 60;
+        document.getElementById("time").innerHTML =
+          minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+      } else {
+        document.getElementById("time").innerHTML = "0:00";
+        clearInterval(timer); // ⬅️ stops it here
+      }
+    }, 1000); // 1 second updates
+  }, 4000);
+</script>
