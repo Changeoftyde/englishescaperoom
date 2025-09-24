@@ -581,7 +581,11 @@ function toggledecode() {
   }
   string = "";
   for (i = 0; i < document.getElementsByClassName('decodepixel').length; i++) {
-    string = string.concat(document.getElementsByClassName("decodepixel")[i].innerHTML);
+    if (document.getElementsByClassName("decodepixel")[i].style.backgroundColor == "red") {
+      string = string.concat("1");
+    } else {
+      string = string.concat("0");
+    }
   }
   if (string == "0110100100101010") {
     document.getElementById("pictureatfront").style.backgroundImage = "url('crackedfirstcode.png')";
